@@ -11,7 +11,7 @@ on:
 jobs:
   update-lock-file:
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]' # Ensure it only runs for Dependabot PRs
+    if: github.event.pull_request.user.login == 'dependabot[bot]' # Ensure it only runs for Dependabot PRs
     defaults:
       run:
         working-directory: superset-frontend
